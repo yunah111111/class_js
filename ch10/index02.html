@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch10 index02.html</h1>
+
+    <button id="alert-btn">alert: 알리기만</button>
+    <button id="confirm-btn">confirm: 확인/취소 묻기</button>
+    <button id="prompt-btn">prompt: 글자를 입력 받기</button>
+    <button id="open-btn">open: 새 창 열기</button>
+
+    <p id="info">결과 표시 영역</p>
+
+    <script>
+      const infoEl = document.querySelector("#info");
+
+      // 1.
+      document.getElementById("alert-btn").addEventListener("click", function () {
+        alert("저장");
+      });
+
+      // 2.
+      document.getElementById("confirm-btn").addEventListener("click", function () {
+        const isOk = confirm("정말 삭제하시겠습니까?");
+        if (isOk) {
+          infoEl.textContent = "삭제 완료";
+          infoEl.style.color = "red";
+        } else {
+          infoEl.textContent = "삭제 취소";
+          infoEl.style.color = "green";
+        }
+      });
+
+      // 3.
+      document.getElementById("prompt-btn").addEventListener("click", function () {
+        let userName = prompt("이름을 입력하세요", "홍길동");
+        if (userName === null) {
+          infoEl.textContent = "입력을 취소했습니다.";
+        } else {
+          infoEl.textContent = `${userName}님 환영합니다.`;
+        }
+      });
+
+      // 4.
+      document.getElementById("open-btn").addEventListener("click", function () {
+        window.open("https://www.google.com", "_blank", "width=400, height=400");
+      });
+
+      // 실헙 5: prompt에서 숫자를 입력 받아서 2를 곱하기 해보자
+      // 결과를 확인하고 이상하면 그 이유 알아보기
+    </script>
+  </body>
+</html>
